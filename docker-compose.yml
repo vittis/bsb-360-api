@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   postgres:
-    container_name: postgres_container
+    container_name: postgres_bsb-360
     image: postgres
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -15,7 +15,7 @@ services:
       - "5432:5432"
     restart: unless-stopped
   pgadmin:
-    container_name: pgadmin_container
+    container_name: pgadmin_bsb-360
     image: dpage/pgadmin4
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
@@ -29,14 +29,14 @@ services:
     restart: unless-stopped
   app:
     build: .
-    container_name: devprojects-api
+    container_name: bsb-360-api
     command: yarn start:dev
-    environment: 
+    environment:
       NODE_ENV: development
     ports:
       - "${PORT}:${PORT}"
-    volumes:
-      - .:/usr/app
+    #volumes:
+    #  - .:/usr/app
 
 volumes:
     postgres:

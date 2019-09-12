@@ -11,9 +11,3 @@ COPY package.json yarn.lock ./
 RUN yarn
 
 COPY . .
-# If you are building your code for production
-# RUN npm ci --only=production
-
-# Bundle app source
-EXPOSE 3030
-CMD ["yarn", "start"]
