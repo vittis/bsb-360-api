@@ -30,20 +30,19 @@ export class JwtGuard extends AuthGuard('jwt') {
     const refreshToken = ExtractJwt.fromHeader('x-refresh-token')(req);
 
     if (!token || !refreshToken) {
-      console.log('aqui');
       throw new UnauthorizedException();
     }
 
     try {
       return await super.canActivate(context);
     } catch (err) {
-      console.log('access token invalid');
+      //console.log('access token invalid');
       try {
-        console.log('verifying refresh token');
+        //console.log('verifying refresh token');
         const decodedRefreshToken: JWTPayload = this.jwtService.verify(
           refreshToken,
         ) as any;
-        console.log('verify success');
+        //console.log('verify success');
 
         const user = {
           email: decodedRefreshToken.email,
