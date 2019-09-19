@@ -5,12 +5,10 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { TokenExpiredError } from 'jsonwebtoken';
-import { Observable } from 'rxjs';
 import { Request, Response } from 'express';
 import { AuthService } from './auth.service';
 import { JwtService } from '@nestjs/jwt';
-import { JWTPayload, UserRO } from './auth.dto';
+import { JWTPayload } from './auth.dto';
 import { ExtractJwt } from 'passport-jwt';
 
 @Injectable()
