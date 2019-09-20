@@ -9,7 +9,6 @@ import {
 
 import * as bcrypt from 'bcryptjs';
 import { UserRO } from '../auth/auth.dto';
-import { IsEmail } from 'class-validator';
 
 @Entity('user')
 export class UserEntity {
