@@ -23,7 +23,6 @@ export class JwtGuard extends AuthGuard('jwt') {
   async canActivate(context: ExecutionContext): Promise<any> {
     const req: Request = context.switchToHttp().getRequest();
     const res: Response = context.switchToHttp().getResponse();
-
     const token = ExtractJwt.fromAuthHeaderAsBearerToken()(req);
     const refreshToken = ExtractJwt.fromHeader('x-refresh-token')(req);
 
@@ -57,6 +56,7 @@ export class JwtGuard extends AuthGuard('jwt') {
         res.set('Access-Control-Expose-Headers', 'x-token, x-refresh-token');
         res.set('x-token', newToken);
         res.set('x-refresh-token', newRefreshToken);
+
         return true;
       } catch (err) {
         console.log(err);
