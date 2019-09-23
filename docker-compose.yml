@@ -35,8 +35,8 @@ services:
       NODE_ENV: development
     ports:
       - "${PORT}:${PORT}"
-    #volumes:
-    #  - .:/usr/app
+    volumes:
+      - .:/usr/app
 
 volumes:
     postgres:
