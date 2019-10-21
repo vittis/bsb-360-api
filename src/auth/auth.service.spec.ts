@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 
